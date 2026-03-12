@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Past IPO Dashboard & Listing Performance | IPO360</title>
+    <meta name="description" content="Track historical performance, listing gains, and subscription data for all past Mainboard and SME IPOs in India. Analyze historical IPO trends with IPO360." />
+    <meta name="keywords" content="Past IPOs, IPO listing gains, IPO performance tracker, SME IPO, Mainboard IPO, historical IPO data, IPO returns" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="IPO360" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.ipo360.in/past-ipo" />
+    <meta property="og:title" content="Past IPO Dashboard & Listing Performance | IPO360" />
+    <meta property="og:description" content="Track historical performance, listing gains, and subscription data for all past Mainboard and SME IPOs." />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Past IPO Dashboard & Listing Performance | IPO360" />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Indian IPO Historical Performance Data",
+      "description": "A comprehensive dataset tracking the listing gains, issue sizes, and subscription figures of past Mainboard and SME IPOs in the Indian stock market.",
+      "url": "https://www.ipo360.in/past-ipo",
+      "creator": {
+        "@type": "Organization",
+        "name": "IPO360",
+        "url": "https://www.ipo360.in"
+      },
+      "keywords": ["IPO", "Listing Gains", "Stock Market", "India", "SME IPO"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#0f172a',
+                        brand: { DEFAULT: '#2563eb', 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb' },
+                        success: '#16a34a',
+                        danger: '#dc2626',
+                        warning: '#d97706',
+                        slate: { 850: '#1e293b' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Sticky Column Logic for Mobile */
+        .sticky-col {
+            position: sticky;
+            left: 0;
+            background-color: white;
+            z-index: 20;
+            border-right: 1px solid #f1f5f9;
+        }
+        .sticky-col::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -6px;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
+            pointer-events: none;
+        }
+        tr:hover .sticky-col { background-color: #f8fafc !important; }
+        
+        body { background-color: #F8FAFC; padding-bottom: 70px; }
+        @media (min-width: 768px) { body { padding-bottom: 0; } }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <a href="https://chat.whatsapp.com/KYewBHJ8J2mDHb16jhfa6l" target="_blank" class="block bg-success hover:bg-green-700 transition-colors py-2 text-center px-4 overflow-hidden relative z-50">
+        <div class="text-xs font-bold text-white flex items-center justify-center gap-2">
+            <i class="fab fa-whatsapp text-sm"></i>
+            <span class="hidden md:inline">Join our Whatsapp community for Daily updates on IPOs & Pre-IPOs</span>
+            <span class="md:hidden">Join Whatsapp for Daily IPO Updates</span>
+        </div>
+    </a>
+
+    <nav class="sticky top-0 z-40 glass-effect border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14 md:h-16">
+                <div class="flex items-center gap-3">
+                    <a href="https://www.ipo360.in" class="flex items-center gap-2">
+                        <img class="h-6 md:h-8 w-auto" src="https://www.ipo360.in/assets/user/img/logo.png" alt="IPO360" onerror="this.src='https://via.placeholder.com/120x40?text=IPO360'">
+                    </a>
+                    <div class="hidden md:flex ml-8 space-x-1">
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand hover:bg-slate-50 rounded-md transition-colors">Home</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand hover:bg-slate-50 rounded-md transition-colors">Dashboard</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-brand bg-blue-50 rounded-md transition-colors">Past IPOs</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:block relative w-64">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-slate-400 text-xs"></i>
+                        </div>
+                        <input type="text" id="desktopSearch" placeholder="Search IPOs..." class="block w-full pl-9 pr-3 py-1.5 border border-slate-200 rounded-lg text-xs bg-white focus:outline-none focus:ring-1 focus:ring-brand shadow-sm" onkeyup="handleSearch(this.value)">
+                    </div>
+                    <a href="#" class="px-4 py-1.5 text-xs font-bold bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition shadow-sm text-slate-700">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 md:py-6">
+        
+        <div class="mb-5 md:mb-6 px-2 md:px-0">
+            <h1 class="text-xl md:text-3xl font-bold text-slate-900 tracking-tight">Past IPO Dashboard</h1>
+            <p class="text-[11px] md:text-base text-slate-500 mt-1">Track historical performance and listing gains.</p>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 md:gap-4 mb-5 px-2 md:px-0">
+            <div class="bg-white shadow-sm border border-slate-200 rounded-xl p-2.5 md:p-4 flex flex-col items-center justify-center text-center">
+                <span class="text-[9px] md:text-sm font-bold uppercase tracking-wider text-slate-500 mb-0.5">Total</span>
+                <span id="stat-total" class="text-lg md:text-3xl font-black text-primary">0</span>
+            </div>
+            
+            <div class="bg-white shadow-sm border border-slate-200 rounded-xl p-2.5 md:p-4 flex flex-col items-center justify-center text-center">
+                <div class="relative group inline-flex items-center justify-center cursor-help mb-0.5">
+                    <span class="text-[9px] md:text-sm font-bold uppercase tracking-wider text-slate-500 border-b border-dashed border-slate-400">Positive</span>
+                    <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white text-xs font-medium px-2.5 py-1.5 rounded shadow-lg pointer-events-none whitespace-nowrap z-50">
+                        Listing gains &gt; 2%
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                    </div>
+                </div>
+                <span id="stat-positive" class="text-lg md:text-3xl font-black text-green-600">0</span>
+            </div>
+            
+            <div class="bg-white shadow-sm border border-slate-200 rounded-xl p-2.5 md:p-4 flex flex-col items-center justify-center text-center">
+                <div class="relative group inline-flex items-center justify-center cursor-help mb-0.5">
+                    <span class="text-[9px] md:text-sm font-bold uppercase tracking-wider text-slate-500 border-b border-dashed border-slate-400">Flat</span>
+                    <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white text-xs font-medium px-2.5 py-1.5 rounded shadow-lg pointer-events-none whitespace-nowrap z-50">
+                        Between -2% and +2%
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                    </div>
+                </div>
+                <span id="stat-flat" class="text-lg md:text-3xl font-black text-slate-600">0</span>
+            </div>
+            
+            <div class="bg-white shadow-sm border border-slate-200 rounded-xl p-2.5 md:p-4 flex flex-col items-center justify-center text-center">
+                <div class="relative group inline-flex items-center justify-center cursor-help mb-0.5">
+                    <span class="text-[9px] md:text-sm font-bold uppercase tracking-wider text-slate-500 border-b border-dashed border-slate-400">Negative</span>
+                    <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white text-xs font-medium px-2.5 py-1.5 rounded shadow-lg pointer-events-none whitespace-nowrap z-50">
+                        Listing gains &lt; -2%
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                    </div>
+                </div>
+                <span id="stat-negative" class="text-lg md:text-3xl font-black text-red-600">0</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 px-2 md:px-0">
+            <div class="flex overflow-x-auto pb-1 gap-2 no-scrollbar" id="typeFilters">
+                <button onclick="setTypeFilter('All')" id="tab-All" class="filter-btn active flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-slate-200 bg-slate-800 text-white shadow-md whitespace-nowrap">All Boards</button>
+                <button onclick="setTypeFilter('MB')" id="tab-MB" class="filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-slate-200 bg-white text-slate-600 whitespace-nowrap hover:bg-slate-50">Mainboard</button>
+                <button onclick="setTypeFilter('SME')" id="tab-SME" class="filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-slate-200 bg-white text-slate-600 whitespace-nowrap hover:bg-slate-50">SME</button>
+            </div>
+            
+            <div class="flex gap-2 w-full md:w-auto">
+                <div class="relative w-full md:hidden">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-slate-400 text-xs"></i>
+                    </div>
+                    <input type="text" id="mobileSearch" placeholder="Search..." class="block w-full pl-8 pr-3 py-2 rounded-lg border border-slate-200 text-xs focus:outline-none focus:border-brand shadow-sm" onkeyup="handleSearch(this.value)">
+                </div>
+                <select id="yearFilter" class="px-3 md:px-4 py-2 rounded-lg border border-slate-200 text-xs md:text-sm font-medium bg-white focus:outline-none focus:border-brand shadow-sm flex-shrink-0 cursor-pointer" onchange="handleFilterChange()">
+                    <option value="all">All Years</option>
+                    <option value="2026" selected>2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="bg-white md:rounded-2xl shadow-sm border-y md:border border-slate-200 overflow-hidden">
+            <div class="overflow-x-auto no-scrollbar">
+                <table class="w-full text-left border-collapse whitespace-nowrap min-w-[320px] md:min-w-[700px] md:table-fixed">
+                    <thead class="bg-slate-50 border-b border-slate-200">
+                        <tr>
+                            <th onclick="sortBy('name')" class="sticky-col px-1.5 md:px-4 py-2.5 md:py-4 text-[9px] md:text-sm font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:text-slate-800 transition md:w-[32%] z-30 bg-slate-50 border-r border-slate-200">
+                                <div class="flex items-center justify-between">
+                                    <span>Company</span>
+                                    <i class="fas fa-sort text-slate-400 ml-0.5" id="icon-name"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortBy('gain')" class="px-1 md:px-4 py-2.5 md:py-4 text-[9px] md:text-sm font-bold text-slate-500 uppercase tracking-wider text-center cursor-pointer hover:text-slate-800 transition border-r border-slate-200 md:w-[17%]">
+                                <div class="flex items-center justify-center gap-0.5 md:gap-1.5">
+                                    <span>List Gain</span>
+                                    <i class="fas fa-sort text-slate-400" id="icon-gain"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortBy('date')" class="px-1 md:px-4 py-2.5 md:py-4 text-[9px] md:text-sm font-bold text-slate-500 uppercase tracking-wider text-center cursor-pointer hover:text-slate-800 transition border-r border-slate-200 md:w-[17%]">
+                                <div class="flex items-center justify-center gap-0.5 md:gap-1.5">
+                                    <span>Date</span>
+                                    <i class="fas fa-sort text-slate-400" id="icon-date"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortBy('size')" class="px-1 md:px-4 py-2.5 md:py-4 text-[9px] md:text-sm font-bold text-slate-500 uppercase tracking-wider text-right cursor-pointer hover:text-slate-800 transition border-r border-slate-200 md:w-[17%]">
+                                <div class="flex items-center justify-end gap-0.5 md:gap-1.5">
+                                    <span>Size</span>
+                                    <i class="fas fa-sort text-slate-400" id="icon-size"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortBy('sub')" class="px-1.5 md:px-4 py-2.5 md:py-4 text-[9px] md:text-sm font-bold text-slate-500 uppercase tracking-wider text-center cursor-pointer hover:text-slate-800 transition md:w-[17%]">
+                                <div class="flex items-center justify-center gap-0.5 md:gap-1.5">
+                                    <span>Sub</span>
+                                    <i class="fas fa-sort text-slate-400" id="icon-sub"></i>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-800" id="ipoTableBody">
+                        </tbody>
+                </table>
+            </div>
+            
+            <div id="emptyState" class="hidden p-10 text-center bg-white">
+                <h3 class="text-base font-bold text-slate-500">No IPOs found.</h3>
+                <p class="text-sm text-slate-400 mt-1">Try adjusting your search or filters.</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="md:hidden fixed bottom-0 w-full bg-white border-t border-slate-200 z-50 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div class="flex justify-around items-center h-14">
+            <a href="#" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-brand transition">
+                <i class="fas fa-home text-lg mb-1"></i>
+                <span class="text-[9px] font-medium uppercase tracking-wide">Home</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-brand transition">
+                <i class="fas fa-chart-line text-lg mb-1"></i>
+                <span class="text-[9px] font-medium uppercase tracking-wide">IPO</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center w-full h-full text-brand relative">
+                <div class="absolute top-1 right-1/4 w-1.5 h-1.5 bg-brand rounded-full"></div>
+                <i class="fas fa-history text-lg mb-1"></i>
+                <span class="text-[9px] font-bold uppercase tracking-wide">Past</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-brand transition">
+                <i class="fas fa-tools text-lg mb-1"></i>
+                <span class="text-[9px] font-medium uppercase tracking-wide">Tools</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const ipoData = [
+            { name: "Acetech E-Commerce", type: "SME", link: "#", gain: "112 (0.00%)", date: "09 Mar", size: "₹ 48.95 Crs", sub: "1.19x", year: "2026", dateCode: 1772928000 },
+            { name: "Striders Impex", type: "SME", link: "#", gain: "70 (-2.78%)", date: "06 Mar", size: "₹ 36.29 Crs", sub: "1.41x", year: "2026", dateCode: 1772668800 },
+            { name: "Yaap Digital", type: "SME", link: "#", gain: "127 (-12.41%)", date: "05 Mar", size: "₹ 80.11 Crs", sub: "-", year: "2026", dateCode: 1772582400 },
+            { name: "PNGS Reva", type: "MB", link: "#", gain: "375 (-2.85%)", date: "04 Mar", size: "₹ 380.00 Crs", sub: "1.23x", year: "2026", dateCode: 1772496000 },
+            { name: "Clean Max", type: "MB", link: "#", gain: "960 (-8.83%)", date: "02 Mar", size: "₹ 3,100.00 Crs", sub: "0.94x", year: "2026", dateCode: 1772323200 },
+            { name: "Accord Transformer", type: "SME", link: "#", gain: "50 (8.70%)", date: "02 Mar", size: "₹ 25.59 Crs", sub: "332.11x", year: "2026", dateCode: 1772323200 },
+            { name: "Kiaasa Retail", type: "SME", link: "#", gain: "123 (-3.15%)", date: "02 Mar", size: "₹ 69.72 Crs", sub: "1.99x", year: "2026", dateCode: 1772323200 },
+            { name: "Shree Ram Twistex", type: "MB", link: "#", gain: "68 (-34.62%)", date: "02 Mar", size: "₹ 110.24 Crs", sub: "43.66x", year: "2026", dateCode: 1772323200 },
+            { name: "Mobilise App", type: "SME", link: "#", gain: "64.10 (-19.88%)", date: "02 Mar", size: "₹ 20.10 Crs", sub: "100.15x", year: "2026", dateCode: 1772323200 },
+            { name: "Manilam Industries", type: "SME", link: "#", gain: "55.20 (-20.00%)", date: "27 Feb", size: "₹ 39.95 Crs", sub: "6.33x", year: "2026", dateCode: 1772064000 },
+            { name: "Gaudium IVF", type: "MB", link: "#", gain: "83 (5.06%)", date: "27 Feb", size: "₹ 165.00 Crs", sub: "7.27x", year: "2026", dateCode: 1772064000 },
+            { name: "Yashhtej Industries", type: "SME", link: "#", gain: "88 (-20.00%)", date: "25 Feb", size: "₹ 88.88 Crs", sub: "-", year: "2026", dateCode: 1771891200 },
+            { name: "Fractal Industries", type: "SME", link: "#", gain: "229 (6.02%)", date: "24 Feb", size: "₹ 49.00 Crs", sub: "5.13x", year: "2026", dateCode: 1771804800 },
+            { name: "Marushika Tech", type: "SME", link: "#", gain: "120 (2.56%)", date: "19 Feb", size: "₹ 26.97 Crs", sub: "18.01x", year: "2026", dateCode: 1771372800 },
+            { name: "Fractal Analytics", type: "MB", link: "#", gain: "876 (-2.67%)", date: "16 Feb", size: "₹ 2,833.90 Crs", sub: "2.66x", year: "2026", dateCode: 1771113600 },
+            { name: "Aye Finance", type: "MB", link: "#", gain: "129 (0.00%)", date: "16 Feb", size: "₹ 1,010.00 Crs", sub: "0.97x", year: "2026", dateCode: 1771113600 },
+            { name: "Inox India", type: "MB", link: "#", gain: "949 (43.89%)", date: "21 Dec", size: "₹ 1,459 Crs", sub: "61.28x", year: "2025", dateCode: 1766275200 }
+        ];
+
+        const colors = [
+            'bg-blue-100 text-blue-700', 'bg-purple-100 text-purple-700', 'bg-pink-100 text-pink-700',
+            'bg-orange-100 text-orange-700', 'bg-teal-100 text-teal-700', 'bg-indigo-100 text-indigo-700'
+        ];
+
+        const tbody = document.getElementById('ipoTableBody');
+        const emptyState = document.getElementById('emptyState');
+        
+        let currentYear = '2026';
+        let currentType = 'All';
+        let searchQuery = '';
+        let sortCol = 'date';
+        let sortAsc = false;
+
+        function extractGainPct(val) {
+            if (val === '- (-%)' || !val) return 0;
+            const match = val.match(/\(([-0-9.]+)%\)/);
+            return match ? parseFloat(match[1]) : 0;
+        }
+        function extractSize(val) { return parseFloat(val.replace(/[^0-9.-]+/g, "")) || 0; }
+        function extractSub(val) { return parseFloat(val.replace(/x/g, "")) || 0; }
+
+        function formatSize(val) {
+            const num = extractSize(val);
+            if (!num) return val;
+            return `₹${Math.round(num).toLocaleString('en-IN')} Cr`;
+        }
+
+        function setTypeFilter(type) {
+            currentType = type;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-slate-200 bg-white text-slate-600 whitespace-nowrap hover:bg-slate-50 transition-all";
+            });
+            const activeBtn = document.getElementById(`tab-${type}`);
+            activeBtn.className = "filter-btn active flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-slate-200 bg-slate-800 text-white shadow-md whitespace-nowrap transition-all";
+            renderTable();
+        }
+
+        function sortBy(col) {
+            if (sortCol === col) sortAsc = !sortAsc;
+            else { sortCol = col; sortAsc = (col === 'name') ? true : false; }
+            renderTable();
+        }
+
+        function updateSortIcons() {
+            document.querySelectorAll('.sort-icon').forEach(icon => {
+                icon.className = 'fas fa-sort text-slate-400 ml-0.5';
+            });
+            const activeIcon = document.getElementById(`icon-${sortCol}`);
+            if (activeIcon) activeIcon.className = sortAsc ? 'fas fa-sort-up text-slate-700 ml-0.5' : 'fas fa-sort-down text-slate-700 ml-0.5';
+        }
+
+        function handleSearch(val) {
+            searchQuery = val.toLowerCase();
+            renderTable();
+        }
+
+        function handleFilterChange() {
+            currentYear = document.getElementById('yearFilter').value;
+            renderTable();
+        }
+
+        function updateSummaryCards(filteredData) {
+            let total = filteredData.length;
+            let pos = 0, flat = 0, neg = 0;
+
+            filteredData.forEach(item => {
+                const pct = extractGainPct(item.gain);
+                if (pct > 2.0) pos++;
+                else if (pct < -2.0) neg++;
+                else flat++;
+            });
+
+            document.getElementById('stat-total').innerText = total;
+            document.getElementById('stat-positive').innerText = pos;
+            document.getElementById('stat-flat').innerText = flat;
+            document.getElementById('stat-negative').innerText = neg;
+        }
+
+        function renderTable() {
+            tbody.innerHTML = '';
+            
+            let filteredData = ipoData.filter(item => {
+                const matchYear = (currentYear === 'all') || item.year === currentYear;
+                const matchType = (currentType === 'All') || item.type === currentType;
+                const matchSearch = item.name.toLowerCase().includes(searchQuery);
+                return matchYear && matchType && matchSearch;
+            });
+
+            updateSummaryCards(filteredData);
+
+            filteredData.sort((a, b) => {
+                let valA, valB;
+                if (sortCol === 'name') { valA = a.name.toLowerCase(); valB = b.name.toLowerCase(); }
+                else if (sortCol === 'date') { valA = a.dateCode; valB = b.dateCode; }
+                else if (sortCol === 'size') { valA = extractSize(a.size); valB = extractSize(b.size); }
+                else if (sortCol === 'sub') { valA = extractSub(a.sub); valB = extractSub(b.sub); }
+                else if (sortCol === 'gain') { valA = extractGainPct(a.gain); valB = extractGainPct(b.gain); }
+
+                if (valA < valB) return sortAsc ? -1 : 1;
+                if (valA > valB) return sortAsc ? 1 : -1;
+                return 0;
+            });
+
+            updateSortIcons();
+
+            if (filteredData.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                
+                filteredData.forEach((row, index) => {
+                    const pct = extractGainPct(row.gain);
+                    
+                    let gainColor = 'text-slate-600';
+                    if (pct > 2.0) gainColor = 'text-green-600';
+                    else if (pct < -2.0) gainColor = 'text-red-600';
+
+                    let logoColor = colors[index % colors.length];
+                    let initials = row.name.substring(0,2).toUpperCase();
+
+                    const subHtml = row.sub !== '-' 
+                        ? `<span class="text-[9px] md:text-sm font-bold text-orange-600 bg-orange-50 px-1.5 md:px-2 py-0.5 rounded border border-orange-100">${row.sub}</span>` 
+                        : '<span class="text-slate-400 font-medium">-</span>';
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-50 transition-colors group bg-white";
+                    
+                    tr.innerHTML = `
+                        <td class="sticky-col px-1.5 md:px-4 py-2.5 md:py-4 align-middle bg-white group-hover:bg-slate-50 transition-colors border-r border-slate-100 md:w-[32%] z-10">
+                            <div class="flex items-center gap-1.5 md:gap-3">
+                                <div class="h-6 w-6 md:h-10 md:w-10 rounded md:rounded-lg ${logoColor} flex items-center justify-center text-[9px] md:text-sm font-bold border border-white shadow-sm flex-shrink-0">
+                                    ${initials}
+                                </div>
+                                <div class="min-w-0">
+                                    <a href="${row.link}" class="text-[10px] md:text-base font-bold text-slate-900 truncate max-w-[75px] sm:max-w-[140px] md:max-w-none block leading-tight hover:text-brand transition" title="${row.name}">
+                                        ${row.name}
+                                    </a>
+                                    <div class="text-[8px] md:text-[11px] text-slate-500 uppercase tracking-wide mt-0.5 font-semibold">
+                                        ${row.type === 'MB' ? 'Mainboard' : 'SME'}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-1 md:px-4 py-2.5 md:py-4 text-center align-middle border-r border-slate-50 md:w-[17%]">
+                            <div class="text-[10px] md:text-[15px] font-bold ${gainColor} whitespace-nowrap">${row.gain}</div>
+                        </td>
+                        <td class="px-1 md:px-4 py-2.5 md:py-4 align-middle text-center border-r border-slate-50 md:w-[17%]">
+                            <div class="text-[10px] md:text-[15px] font-medium text-slate-700 whitespace-nowrap">${row.date} <span class="text-[8px] md:text-[11px] text-slate-400">('${row.year.slice(-2)})</span></div>
+                        </td>
+                        <td class="px-1 md:px-4 py-2.5 md:py-4 text-right align-middle bg-slate-50/50 border-r border-slate-50 md:w-[17%]">
+                            <div class="text-[10px] md:text-[15px] font-bold text-brand whitespace-nowrap">${formatSize(row.size)}</div>
+                        </td>
+                        <td class="px-1.5 md:px-4 py-2.5 md:py-4 text-center align-middle bg-slate-50/50 md:w-[17%]">
+                            ${subHtml}
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+        }
+
+        document.getElementById('desktopSearch')?.addEventListener('keyup', function(e) {
+            handleSearch(e.target.value);
+            if(document.getElementById('mobileSearch')) document.getElementById('mobileSearch').value = e.target.value;
+        });
+
+        renderTable();
+
+    </script>
+</body>
+</html>
